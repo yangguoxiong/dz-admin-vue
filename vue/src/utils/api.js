@@ -5,7 +5,8 @@ import store from '../store'
 // 创建axios实例
 const service = axios.create({
   baseURL: process.env.BASE_URL, // api的base_url
-  timeout: 15000                  // 请求超时时间2
+  timeout: 15000,                // 请求超时时间2
+  headers: {'Access-Control-Allow-Origin': '*', 'Access-control-expose-headers': 'Authorization'}
 })
 // request拦截器
 service.interceptors.request.use(config => {
@@ -15,7 +16,7 @@ service.interceptors.request.use(config => {
   console.error(error) // for debug
   Promise.reject(error)
 })
-// respone拦截器
+// response拦截器
 service.interceptors.response.use(
   response => {
     const res = response.data;

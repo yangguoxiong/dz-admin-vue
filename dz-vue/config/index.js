@@ -28,6 +28,7 @@ module.exports = {
     autoOpenPage: '/login',
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    // 通过proxyTable,由前端处理跨域问题.另外方法可以在服务端添加cors也可以解决
     proxyTable: {
       '/': {
         target: 'http://localhost:8800',
